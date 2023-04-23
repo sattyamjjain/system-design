@@ -83,6 +83,3 @@ bytes_sent = net_io.bytes_sent
 bytes_recv = net_io.bytes_recv
 print(bytes_sent)
 print(bytes_recv)
-
-
-

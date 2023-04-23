@@ -6,7 +6,7 @@ import threading
 def process_queue(q):
     while True:
         item = q.get()
-        print(f'Processing item {item}...')
+        print(f"Processing item {item}...")
         time.sleep(1)
         q.task_done()
 
@@ -21,4 +21,4 @@ for i in range(10):
     q.put(i)
 
 q.join()
-print('All items processed')
+print("All items processed")

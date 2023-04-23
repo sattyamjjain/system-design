@@ -8,7 +8,9 @@ class LoadBalancer:
         self.server_statuses = [True] * self.num_servers
 
     def choose_server(self):
-        available_servers = [i for i in range(self.num_servers) if self.server_statuses[i]]
+        available_servers = [
+            i for i in range(self.num_servers) if self.server_statuses[i]
+        ]
         if not available_servers:
             return None
         return random.choice(available_servers)

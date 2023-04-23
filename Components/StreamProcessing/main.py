@@ -1,20 +1,19 @@
 from confluent_kafka import Producer, Consumer
 import pandas as pd
 
-conf = {
-    'bootstrap.servers': 'my-kafka-broker:9092',
-    'client.id': 'my-client-id'
-}
+conf = {"bootstrap.servers": "my-kafka-broker:9092", "client.id": "my-client-id"}
 producer = Producer(conf)
-consumer = Consumer({
-    'bootstrap.servers': 'my-kafka-broker:9092',
-    'group.id': 'my-consumer-group',
-    'auto.offset.reset': 'earliest'
-})
+consumer = Consumer(
+    {
+        "bootstrap.servers": "my-kafka-broker:9092",
+        "group.id": "my-consumer-group",
+        "auto.offset.reset": "earliest",
+    }
+)
 
-producer.produce('my-topic', key='key', value='value')
+producer.produce("my-topic", key="key", value="value")
 
-consumer.subscribe(['my-topic'])
+consumer.subscribe(["my-topic"])
 
 while True:
     msg = consumer.poll(1.0)

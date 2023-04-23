@@ -34,7 +34,9 @@ class MemoryCache:
 
     def evict(self):
         now = time.time()
-        expired_keys = [k for k, (v, e) in self.cache.items() if e is not None and e < now]
+        expired_keys = [
+            k for k, (v, e) in self.cache.items() if e is not None and e < now
+        ]
         for key in expired_keys:
             del self.cache[key]
 

@@ -4,11 +4,11 @@ import sqlite3
 app = Flask(__name__)
 
 
-@app.route('/users')
+@app.route("/users")
 def get_users():
-    name = request.args.get('name')
-    age = request.args.get('age')
-    conn = sqlite3.connect('users.db')
+    name = request.args.get("name")
+    age = request.args.get("age")
+    conn = sqlite3.connect("users.db")
     cursor = conn.cursor()
     query = "SELECT * FROM users"
     if name:
@@ -19,7 +19,7 @@ def get_users():
     data = cursor.fetchall()
     users = []
     for row in data:
-        user = {'id': row[0], 'name': row[1], 'age': row[2]}
+        user = {"id": row[0], "name": row[1], "age": row[2]}
         users.append(user)
     conn.close()
     return jsonify(users)
