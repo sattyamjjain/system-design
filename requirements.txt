@@ -1,0 +1,4 @@
+Flask==2.2.3
+Flask-SQLAlchemy==3.0.3
+redis==4.5.4
+elasticsearch==8.7.0
