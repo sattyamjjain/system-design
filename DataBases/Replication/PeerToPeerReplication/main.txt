@@ -1,0 +1,5 @@
+-- Configure replication for each database
+ALTER SYSTEM SET synchronous_standby_names = 'node1,node2';
+-- Start replication
+SELECT pg_create_logical_replication_slot('node1_slot', 'pgoutput');
+SELECT pg_create_logical_replication_slot('node2_slot', 'pgoutput');

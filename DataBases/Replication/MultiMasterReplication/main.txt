@@ -1,0 +1,11 @@
+rs.initiate({
+    _id: 'myReplicaSet',
+    members: [
+        { _id: 0, host: 'node1.example.com:27017' },
+        { _id: 1, host: 'node2.example.com:27017' },
+        { _id: 2, host: 'node3.example.com:27017' }
+    ]
+});
+
+rs.conf().settings = { chainingAllowed: true };
+rs.reconfig(rs.conf());
